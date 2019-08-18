@@ -1,0 +1,30 @@
+﻿<!-- 
+    IceBot Default configuration file 
+    - If you want to use YT/SC API functions, you need to get an API keys!
+-->
+<IceBotConfig>
+  <BotToken>InsertHere</BotToken>
+  <SCSettings>
+    <Enabled>true</Enabled>
+    <APIToken>InsertHere</APIToken>
+  </SCSettings>
+  <YTSettings>
+    <Enabled>true</Enabled>
+    <APIToken>InsertHere</APIToken>
+  </YTSettings>
+  <StatusOnJoin>Just chilling</StatusOnJoin>
+  <CommandPrefix>!</CommandPrefix>
+  <RemoteAdminEnabled>false</RemoteAdminEnabled>
+  <RemoteAdminIP>127.0.0.1</RemoteAdminIP>
+  <RemoteAdminPort>28287</RemoteAdminPort>
+  <AntiBadWord>false</AntiBadWord>
+  <Users>
+    <User>
+      <Username>admin</Username>
+      <Password>admin</Password>
+    </User>
+  </Users>
+  <BadWords>
+    <BadWord>Fortnite</BadWord>
+  </BadWords>
+</IceBotConfig>
