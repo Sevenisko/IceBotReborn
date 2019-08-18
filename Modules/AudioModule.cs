@@ -188,11 +188,6 @@ namespace Sevenisko.IceBot.Modules
                             await ReplyAsync("Soundcloud playback is disabled by admin.", false);
                             return;
                         }
-                        else if (path.Contains("spotify.com"))
-                        {
-                            await ReplyAsync("I cannot play songs from Spotify, because they have an really hard API for me. 😦", false);
-                            return;
-                        }
                         else if ((path.Contains("youtube.com") || path.Contains("youtu.be")) && !Program.config.YTSettings.Enabled)
                         {
                             await ReplyAsync("YouTube playback is disabled by admin.", false);
@@ -237,6 +232,11 @@ namespace Sevenisko.IceBot.Modules
                             await Context.Client.SetGameAsync(title, null, ActivityType.Listening);
                             await Shared.AudioPlayer.Play(value, song);
                         }
+                    }
+                    else if (path.Contains("spotify.com"))
+                    {
+                        await ReplyAsync("I cannot play songs from Spotify, because they have an really hard API for me. 😦", false);
+                        return;
                     }
                     else
                     {
