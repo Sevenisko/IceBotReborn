@@ -190,7 +190,7 @@ namespace Sevenisko.IceBot.Modules
                         }
                         else if (path.Contains("spotify.com"))
                         {
-                            await ReplyAsync("I cannot play songs from Spotify, because they has an really hard API for me. 😦", false);
+                            await ReplyAsync("I cannot play songs from Spotify, because they have an really hard API for me. 😦", false);
                             return;
                         }
                         else if ((path.Contains("youtube.com") || path.Contains("youtu.be")) && !Program.config.YTSettings.Enabled)
