@@ -20,4 +20,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-Read LICENSE file.
+Read [LICENSE](https://github.com/Sevenisko/IceBotReborn/blob/master/LICENSE) file.
