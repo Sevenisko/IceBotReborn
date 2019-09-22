@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.Concurrent;
 using Discord.Audio;
-using System.Text;
+using System.Threading;
 
 namespace Sevenisko.IceBot
 {
@@ -16,6 +16,7 @@ namespace Sevenisko.IceBot
     {
         static DiscordSocketClient client;
         public static ConfigFile config;
+        Admin.WebServer webServer;
 
         [DllImport("Kernel32")]
         public static extern bool SetConsoleCtrlHandler(EventHandler Handler, bool Add);
@@ -40,6 +41,7 @@ namespace Sevenisko.IceBot
             LogText(LogSeverity.Info, "Main", "Exiting IceBot...");
             client.LogoutAsync();
             client.StopAsync();
+            
             LogText(LogSeverity.Info, "Main", "IceBot successfully exited, have i nice day and goodbye.");
             Environment.Exit(0);
             return true;
@@ -76,6 +78,8 @@ namespace Sevenisko.IceBot
             config = Configuration.LoadConfig("Config.xml");
             client = new DiscordSocketClient();
 
+            webServer = new Admin.WebServer();
+
             if (config.BotToken == "InsertHere")
             {
                 ThrowFatal("Set your bot token first!");
@@ -104,6 +108,11 @@ namespace Sevenisko.IceBot
             }
             await client.StartAsync();
 
+            if (config.WebSettings.Enabled)
+            {
+                webServer.Start($"http://{config.WebSettings.Address}:{config.WebSettings.Port}/");
+            }
+
             await Task.Delay(-1);
         }
 
@@ -127,11 +136,15 @@ namespace Sevenisko.IceBot
         }
     }
 
+    public class AdminUser
+    {
+        public string Username;
+        public string Password;
+    }
+
     public class Shared
     {
         public static List<string> BadWords { get; set; }
-        public static List<Admin.AdminUser> Users { get; set; }
-        public static List<Admin.AdminSession> Sessions { get; set; }
         public static bool commandsEnabled = true;
         public static SocketGuild discordServer { get; set; }
 

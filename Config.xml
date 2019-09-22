@@ -1,9 +1,18 @@
 ﻿<!-- 
     IceBot Default configuration file 
     - If you want to use YT/SC API functions, you need to get an API keys!
+    
+    Placeholders:
+      %g = <
+      %s = >
 -->
 <IceBotConfig>
   <BotToken>InsertHere</BotToken>
+  <HTTPSettings>
+    <Enabled>true</Enabled>
+    <Address>localhost</Address>
+    <Port>8080</Port>
+  </HTTPSettings>
   <SCSettings>
     <Enabled>true</Enabled>
     <APIToken>InsertHere</APIToken>
@@ -14,9 +23,6 @@
   </YTSettings>
   <StatusOnJoin>Just chilling</StatusOnJoin>
   <CommandPrefix>!</CommandPrefix>
-  <RemoteAdminEnabled>false</RemoteAdminEnabled>
-  <RemoteAdminIP>127.0.0.1</RemoteAdminIP>
-  <RemoteAdminPort>28287</RemoteAdminPort>
   <AntiBadWord>false</AntiBadWord>
   <Users>
     <User>
@@ -27,4 +33,34 @@
   <BadWords>
     <BadWord>Fortnite</BadWord>
   </BadWords>
+  <Messages>
+    <Message>
+      <Question>not great</Question>
+      <Answer>Not terrible. %g:not_great_not_terrible:598605362953715723%s</Answer>
+    </Message>
+    <Message>
+      <Question>who are you?</Question>
+      <Answer>I'm an bot, who can do something with your life.</Answer>
+    </Message>
+    <Message>
+      <Question>what is love</Question>
+      <Answer>Baby, don't hurt me.</Answer>
+    </Message>
+    <Message>
+      <Question>don't hurt me</Question>
+      <Answer>No more...</Answer>
+    </Message>
+  </Messages>
+  <Radio>
+    <RadioStation>
+      <Name>Kiss - To nejlepší od 90. let</Name>
+      <Filename>kiss128</Filename>
+      <Thumbnail>https://api.play.cz/static/radio_logo/t200/kiss.png</Thumbnail>
+    </RadioStation>
+    <RadioStation>
+      <Name>Evropa 2 - Maxximum muziky</Name>
+      <Filename>evropa2-128</Filename>
+      <Thumbnail>https://api.play.cz/static/radio_logo/t200/evropa2.png</Thumbnail>
+    </RadioStation>
+  </Radio>
 </IceBotConfig>

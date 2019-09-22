@@ -40,6 +40,14 @@ namespace Sevenisko.IceBot
     }
 
     [Serializable()]
+    public class HTTPSettings
+    {
+        public bool Enabled { get; set; }
+        public string Address { get; set; }
+        public int Port { get; set; }
+    }
+
+    [Serializable()]
     public class Soundcloud
     {
         public bool Enabled { get; set; }
@@ -52,6 +60,8 @@ namespace Sevenisko.IceBot
     {
         [XmlElement("BotToken")]
         public string BotToken { get; set; }
+        [XmlElement("HTTPSettings")]
+        public HTTPSettings WebSettings { get; set; }
         [XmlElement("SCSettings")]
         public Soundcloud SCSettings { get; set; }
         [XmlElement("YTSettings")]
